@@ -14,7 +14,7 @@ class Crypto extends Component {
         return (
             <div>
                 <div className='CryptoWrapper'>
-                    <h1 className='TitleText'>TrackPrices</h1>
+                    <h1 className='TitleText'>Track Prices</h1>
                     <ul className='CryptoTitle'>
                         <li>
                             <a className='Bitcoin' onClick={this.scrollToBitcoin}>

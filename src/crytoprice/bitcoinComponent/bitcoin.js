@@ -25,6 +25,7 @@ class Bitcoin extends Component {
     render() {
         return (
             <div className='BitcoinWrapper' id='myScrollToElement'>
+                <h1 className='BitcoinTitleText'>Bitcoin</h1>
                 <p>{this.state.cryptos.PRICE}</p>
                 <p>{this.state.cryptos.FROMSYMBOL}</p>
                 <p>{this.state.cryptos.HIGH24HOUR}</p>
