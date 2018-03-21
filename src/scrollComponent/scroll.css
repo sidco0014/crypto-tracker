@@ -1,0 +1,26 @@
+.ScrollDown {
+    background-color: transparent;
+    color: #21ce99;
+    position: absolute;
+    font-weight: 600;
+    font-size: 2rem;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Raleway', sans-serif;
+    cursor: pointer;
+}
+
+.ScrollDown::after {
+    border-style: solid;
+    border-width: 0.10em 0.10em 0 0;
+    content: '';
+    display: inline-block;
+    height: 0.45em;
+    position: relative;
+    vertical-align: top;
+    width: 0.45em;
+    top: 35px;
+    transform: rotate(135deg);
+    left: -50%;
+}
