@@ -4,7 +4,6 @@ import Crypto from './crytoprice/cryptoprice';
 import Particles from 'react-particles-js';
 import ScrollDown from './scrollComponent/scroll';
 
-
 class App extends Component {
 
     render() {

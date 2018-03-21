@@ -18,7 +18,7 @@
     text-shadow: 0 2px 30px #21ce99;
     position: relative;
     width: 100%;
-    top: 150px;
+    top: 100px;
 }
 
 .CryptoWrapper h3 {
@@ -47,6 +47,7 @@
 .CryptoTitle a {
     display: block;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .CryptoTitle a.Bitcoin:hover {

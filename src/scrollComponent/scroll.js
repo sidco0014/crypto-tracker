@@ -1,19 +1,17 @@
-import * as Scroll from 'react-scroll';
 import React, {Component} from 'react';
 import './scroll.css';
-
-let scroll = Scroll.animateScroll;
+import * as Scroll from 'react-scroll';
 
 class ScrollDown extends Component {
 
-    scrollToBottom() {
-        scroll.scrollToBottom();
+    scrollTo() {
+        Scroll.animateScroll.scrollTo(600);
     }
 
     render() {
         return (
             <div>
-                <a onClick={this.scrollToBottom} className='ScrollDown'>Scroll Down</a>
+                <a onClick={this.scrollTo} className='ScrollDown'>Scroll Down</a>
             </div>
         )
     }
