@@ -39,7 +39,7 @@
     color: #21ce99;
     position: absolute;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 3rem;
     left: 50%;
     top: 65%;
     transform: translateX(-50%);
@@ -51,6 +51,11 @@
     -moz-animation-duration: 1800ms;
     -moz-animation-iteration-count: infinite;
     -moz-animation-name: dancing-dots-jump;
+    text-decoration: none !important;
+}
+
+.ScrollDown:hover {
+    color: #21ce99;
 }
 
 .ScrollDown::after {
