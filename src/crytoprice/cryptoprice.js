@@ -7,7 +7,7 @@ import * as Scroll from 'react-scroll';
 class Crypto extends Component {
 
     scrollToBitcoin() {
-        Scroll.animateScroll.scrollTo(1400);
+        Scroll.animateScroll.scrollTo(1200);
     }
 
     render() {
