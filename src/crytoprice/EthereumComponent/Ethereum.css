@@ -1,0 +1,38 @@
+.EthereumWrapper {
+    height: 800px;
+    width: 100%;
+    background: -moz-linear-gradient(top, rgba(3, 14, 33, 1) 0%, rgba(3, 14, 33, 1) 35%, rgba(0, 59, 85, 1) 96%, rgba(0, 59, 85, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(3, 14, 33, 1) 0%, rgba(3, 14, 33, 1) 35%, rgba(0, 59, 85, 1) 96%, rgba(0, 59, 85, 1) 100%);
+    background: -o-linear-gradient(top, rgba(3, 14, 33, 1) 0%, rgba(3, 14, 33, 1) 35%, rgba(0, 59, 85, 1) 96%, rgba(0, 59, 85, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(3, 14, 33, 1) 0%, rgba(3, 14, 33, 1) 35%, rgba(0, 59, 85, 1) 96%, rgba(0, 59, 85, 1) 100%);
+    background: linear-gradient(to bottom, rgba(3, 14, 33, 1) 0%, rgba(3, 14, 33, 1) 35%, rgba(0, 59, 85, 1) 96%, rgba(0, 59, 85, 1) 100%);
+    margin-top: 0;
+}
+
+.EthereumTitleText {
+    font-size: 10rem;
+    color: white;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 30px #FFFF66;
+}
+
+.InnerWrapperContent {
+    width: 70%;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.LastEthereumPriceDate {
+    text-align: left;
+    width: 70%;
+    margin: auto;
+}
+
+.LastEthereumPriceDate h2 {
+    color: white;
+    text-shadow: 0 2px 30px #21ce99;
+    font-size: 3rem;
+}
+
+

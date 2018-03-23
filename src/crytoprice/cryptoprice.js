@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './cryptoprice.css';
 import Bitcoin from './bitcoinComponent/bitcoin';
+import Ethereum from './EthereumComponent/Ethereum';
+import Litecoin from './litecoinComponent/litecoin';
 import * as Scroll from 'react-scroll';
 
 
@@ -9,6 +11,15 @@ class Crypto extends Component {
     scrollToBitcoin() {
         Scroll.animateScroll.scrollTo(1200);
     }
+
+    scrollToEthereum() {
+        Scroll.animateScroll.scrollTo(2000);
+    }
+
+    scrollToLitecoin() {
+        Scroll.animateScroll.scrollTo(2800);
+    }
+
 
     render() {
         return (
@@ -22,15 +33,17 @@ class Crypto extends Component {
                             </a>
                         </li>
                         <li>
-                            <a className='Ethereum'><h3>Ethereum</h3></a>
+                            <a className='Ethereum' onClick={this.scrollToEthereum}><h3>Ethereum</h3></a>
                         </li>
 
                         <li>
-                            <a className='Litecoin'><h3>Litecoin</h3></a>
+                            <a className='Litecoin' onClick={this.scrollToLitecoin}><h3>Litecoin</h3></a>
                         </li>
                     </ul>
                 </div>
                 <Bitcoin/>
+                <Ethereum/>
+                <Litecoin/>
             </div>
 
         )

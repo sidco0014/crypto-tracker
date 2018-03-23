@@ -1,4 +1,4 @@
-.BitcoinWrapper {
+.LitecoinWrapper {
     height: 800px;
     width: 100%;
     background: rgba(0, 60, 85, 1);
@@ -10,12 +10,12 @@
     margin-top: 0;
 }
 
-.BitcoinTitleText {
+.LitecoinTitleText {
     font-size: 10rem;
     color: white;
     margin: 0;
     letter-spacing: 2px;
-    text-shadow: 0 2px 30px #21ce99;
+    text-shadow: 0 2px 30px #FF3399;
 }
 
 .InnerWrapperContent {
@@ -24,13 +24,13 @@
     padding-top: 50px;
 }
 
-.LastBitcoinPriceDate {
+.LastLitecoinPriceDate {
     text-align: left;
     width: 70%;
     margin: auto;
 }
 
-.LastBitcoinPriceDate h2 {
+.LastLitecoinPriceDate h2 {
     color: white;
     text-shadow: 0 2px 30px #21ce99;
     font-size: 3rem;

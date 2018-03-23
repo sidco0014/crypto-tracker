@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import './bitcoin.css';
-import "react-bootstrap/dist/react-bootstrap.min.js";
+import './litecoin.css';
 import {Line} from 'react-chartjs-2';
 
-let BitcoinPrice = [];
-let BitcoinDate = [];
+let LitecoinPrice = [];
+let LitecoinDate = [];
 let lastPrice;
 let lastUpdatedOn;
-let BitcoinData = [];
+let LitObjectData = [];
 
-class Bitcoin extends Component {
+class Litecoin extends Component {
 
     constructor(props) {
         super(props);
@@ -26,20 +25,20 @@ class Bitcoin extends Component {
                     }
                 ],
             },
-            LastUpdatedBitcoinPrice: '',
-            lastUpdatedBitcoinDate: '',
+            LastUpdatedLitecoinPrice: '',
+            lastUpdatedLitecoinDate: '',
         }
     }
 
     componentDidMount() {
-        axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=30&aggregate=1').then(
+        axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=LTC&tsym=USD&limit=30&aggregate=1').then(
             res => {
                 const crypto = res.data['Data'];
                 Object.entries(crypto).map((res) => {
-                    BitcoinData.push(res[1]);
+                    LitObjectData.push(res[1]);
                 });
-                Object.entries(BitcoinData).map((result) => {
-                    BitcoinPrice.push(result[1].open);
+                Object.entries(LitObjectData).map((result) => {
+                    LitecoinPrice.push(result[1].open);
                     let DateObj = new Date(result[1].time * 1000);
                     let monthNames = ["January", "February", "March", "April", "May", "June",
                         "July", "August", "September", "October", "November", "December"
@@ -48,16 +47,16 @@ class Bitcoin extends Component {
                     let month = DateObj.getMonth();
                     let year = DateObj.getFullYear();
                     let newDate = day + " " + monthNames[month] + ", " + year;
-                    BitcoinDate.push(newDate.toString());
+                    LitecoinDate.push(newDate.toString());
                 });
 
                 const charData = {
-                    labels: BitcoinDate,
+                    labels: LitecoinDate,
                     datasets: [
                         {
-                            data: BitcoinPrice,
+                            data: LitecoinPrice,
                             backgroundColor: '#fff',
-                            borderColor: '#00ea9c',
+                            borderColor: '#FF3399',
                             fill: false,
                             lineTension: 0,
                             pointRadius: 3,
@@ -74,15 +73,14 @@ class Bitcoin extends Component {
 
     render() {
         return (
-            <div className='BitcoinWrapper'>
-                <h1 className='BitcoinTitleText'>Bitcoin</h1>
-                <div className='LastBitcoinPriceDate'>
-                    <h2>{this.state.LastUpdatedBitcoinPrice}</h2>
-                    <h2>{this.state.lastUpdatedBitcoinDate}</h2>
+            <div className='LitecoinWrapper'>
+                <h1 className='LitecoinTitleText'>Litecoin</h1>
+                <div className='LastLitecoinPriceDate'>
+
                 </div>
 
                 <div className='InnerWrapperContent'>
-                    <Line data={this.state.chartData} width={100} height={50} options={{
+                    <Line data={this.state.chartData} options={{
                         legend: {
                             display: false,
                         },
@@ -111,4 +109,4 @@ class Bitcoin extends Component {
     }
 }
 
-export default Bitcoin;
+export default Litecoin;
