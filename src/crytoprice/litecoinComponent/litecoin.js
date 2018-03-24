@@ -32,18 +32,18 @@ class Litecoin extends Component {
         let LitecoinPriceChange = '';
         let LitecoinPercentChange = '';
         let lastPrice = LitecoinPriceArr[LitecoinPriceArr.length - 1];
-        let seconLastPrice = LitecoinPriceArr[LitecoinPriceArr.length - 2];
-        let diff = lastPrice - seconLastPrice;
+        let firstPrice = LitecoinPriceArr[0];
+        let diff = lastPrice - firstPrice;
         diff = Math.round(diff * 100) / 100;
-        let percent = (diff / seconLastPrice) * 100;
+        let percent = (diff / firstPrice) * 100;
         percent = Math.round(percent * 100) / 100;
         if (diff > 0) {
             LitecoinPriceChange = '+$' + diff;
             LitecoinPercentChange = percent + '%';
         }
         else {
-            LitecoinPriceChange = '-$' + diff;
-            LitecoinPercentChange = '-' + percent + '%';
+            LitecoinPriceChange = '-$' + (-1*diff);
+            LitecoinPercentChange = percent + '%';
         }
         this.setState({
             LastUpdatedLitecoinPrice: LitecoinPriceChange,
@@ -96,8 +96,7 @@ class Litecoin extends Component {
             <div className='LitecoinWrapper'>
                 <h1 className='LitecoinTitleText'>Litecoin</h1>
                 <div className='LastLitecoinPriceDate'>
-                    <h4>{this.state.LastUpdatedLitecoinPrice} ({this.state.LastUpdatedLitecoinChange}) PAST 24
-                        HOURS</h4>
+                    <h4>{this.state.LastUpdatedLitecoinPrice} ({this.state.LastUpdatedLitecoinChange}) PAST MONTH</h4>
                 </div>
 
                 <div className='InnerWrapperContent'>

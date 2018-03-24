@@ -33,18 +33,19 @@ class Bitcoin extends Component {
         let BitcoinPriceChange = '';
         let BitcoinPercentChange = '';
         let lastPrice = BitcoinPriceArr[BitcoinPriceArr.length - 1];
-        let seconLastPrice = BitcoinPriceArr[BitcoinPriceArr.length - 2];
-        let diff = lastPrice - seconLastPrice;
+        let firstPrice = BitcoinPriceArr[0];
+        let diff = lastPrice - firstPrice;
         diff = Math.round(diff * 100) / 100;
-        let percent = (diff / seconLastPrice) * 100;
+        let percent = (diff / firstPrice) * 100;
         percent = Math.round(percent * 100) / 100;
         if (diff > 0) {
             BitcoinPriceChange = '+$' + diff;
             BitcoinPercentChange = percent + '%';
         }
         else {
-            BitcoinPriceChange = '-$' + diff;
-            BitcoinPercentChange = '-' + percent + '%';
+            BitcoinPriceChange = '-$' + (-1*diff);
+            BitcoinPercentChange = percent + '%';
+            console.log(BitcoinPercentChange);
         }
         this.setState({
             LastUpdatedBitcoinPrice: BitcoinPriceChange,
@@ -97,7 +98,7 @@ class Bitcoin extends Component {
             <div className='BitcoinWrapper'>
                 <h1 className='BitcoinTitleText'>Bitcoin</h1>
                 <div className='LastBitcoinPriceDate'>
-                    <h4>{this.state.LastUpdatedBitcoinPrice} ({this.state.LastUpdatedBitcoinChange}) PAST 24 HOURS</h4>
+                    <h4>{this.state.LastUpdatedBitcoinPrice} ({this.state.LastUpdatedBitcoinChange}) PAST MONTH</h4>
                 </div>
 
                 <div className='InnerWrapperContent'>

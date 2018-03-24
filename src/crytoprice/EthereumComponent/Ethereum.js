@@ -32,18 +32,18 @@ class Ethereum extends Component {
         let EthereumPriceChange = '';
         let EthereumPercentChange = '';
         let lastPrice = EthereumPrice[EthereumPrice.length - 1];
-        let seconLastPrice = EthereumPrice[EthereumPrice.length - 2];
-        let diff = lastPrice - seconLastPrice;
+        let firstPrice = EthereumPrice[0];
+        let diff = lastPrice - firstPrice;
         diff = Math.round(diff * 100) / 100;
-        let percent = (diff / seconLastPrice) * 100;
+        let percent = (diff / firstPrice) * 100;
         percent = Math.round(percent * 100) / 100;
         if (diff > 0) {
             EthereumPriceChange = '+$' + diff;
             EthereumPercentChange = percent + '%';
         }
         else {
-            EthereumPriceChange = '-$' + diff;
-            EthereumPercentChange = '-' + percent + '%';
+            EthereumPriceChange = '-$' + (-1*diff);
+            EthereumPercentChange = percent + '%';
         }
         this.setState({
             LastUpdatedEthereumPrice: EthereumPriceChange,
@@ -96,8 +96,7 @@ class Ethereum extends Component {
             <div className='EthereumWrapper'>
                 <h1 className='EthereumTitleText'>Ethereum</h1>
                 <div className='LastEthereumPriceDate'>
-                    <h4>{this.state.LastUpdatedEthereumPrice} ({this.state.LastUpdatedEthereumChange}) PAST 24
-                        HOURS</h4>
+                    <h4>{this.state.LastUpdatedEthereumPrice} ({this.state.LastUpdatedEthereumChange}) PAST MONTH</h4>
                 </div>
 
                 <div className='InnerWrapperContent'>
