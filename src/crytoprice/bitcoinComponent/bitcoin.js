@@ -6,8 +6,6 @@ import {Line} from 'react-chartjs-2';
 
 let BitcoinPrice = [];
 let BitcoinDate = [];
-let lastPrice;
-let lastUpdatedOn;
 let BitcoinData = [];
 
 class Bitcoin extends Component {
@@ -27,8 +25,31 @@ class Bitcoin extends Component {
                 ],
             },
             LastUpdatedBitcoinPrice: '',
-            lastUpdatedBitcoinDate: '',
+            LastUpdatedBitcoinChange: '',
         }
+    }
+
+    getLastBitcoinPricedData(BitcoinPriceArr) {
+        let BitcoinPriceChange = '';
+        let BitcoinPercentChange = '';
+        let lastPrice = BitcoinPriceArr[BitcoinPriceArr.length - 1];
+        let seconLastPrice = BitcoinPriceArr[BitcoinPriceArr.length - 2];
+        let diff = lastPrice - seconLastPrice;
+        diff = Math.round(diff * 100) / 100;
+        let percent = (diff / seconLastPrice) * 100;
+        percent = Math.round(percent * 100) / 100;
+        if (diff > 0) {
+            BitcoinPriceChange = '+$' + diff;
+            BitcoinPercentChange = percent + '%';
+        }
+        else {
+            BitcoinPriceChange = '-$' + diff;
+            BitcoinPercentChange = '-' + percent + '%';
+        }
+        this.setState({
+            LastUpdatedBitcoinPrice: BitcoinPriceChange,
+            LastUpdatedBitcoinChange: BitcoinPercentChange
+        })
     }
 
     componentDidMount() {
@@ -50,7 +71,7 @@ class Bitcoin extends Component {
                     let newDate = day + " " + monthNames[month] + ", " + year;
                     BitcoinDate.push(newDate.toString());
                 });
-
+                this.getLastBitcoinPricedData(BitcoinPrice);
                 const charData = {
                     labels: BitcoinDate,
                     datasets: [
@@ -64,7 +85,6 @@ class Bitcoin extends Component {
                         }
                     ],
                 };
-
                 this.setState({cryptos: crypto});
                 this.setState({
                     chartData: charData
@@ -77,8 +97,7 @@ class Bitcoin extends Component {
             <div className='BitcoinWrapper'>
                 <h1 className='BitcoinTitleText'>Bitcoin</h1>
                 <div className='LastBitcoinPriceDate'>
-                    <h2>{this.state.LastUpdatedBitcoinPrice}</h2>
-                    <h2>{this.state.lastUpdatedBitcoinDate}</h2>
+                    <h4>{this.state.LastUpdatedBitcoinPrice} ({this.state.LastUpdatedBitcoinChange}) PAST 24 HOURS</h4>
                 </div>
 
                 <div className='InnerWrapperContent'>

@@ -5,8 +5,6 @@ import {Line} from 'react-chartjs-2';
 
 let EthereumPrice = [];
 let EthereumDate = [];
-let lastPrice;
-let lastUpdatedOn;
 let EthObjectData = [];
 
 class Ethereum extends Component {
@@ -26,8 +24,31 @@ class Ethereum extends Component {
                 ],
             },
             LastUpdatedEthereumPrice: '',
-            lastUpdatedEthereumDate: '',
+            LastUpdatedEthereumChange: '',
         }
+    }
+
+    getLastEthereumPricedData(EthereumPrice) {
+        let EthereumPriceChange = '';
+        let EthereumPercentChange = '';
+        let lastPrice = EthereumPrice[EthereumPrice.length - 1];
+        let seconLastPrice = EthereumPrice[EthereumPrice.length - 2];
+        let diff = lastPrice - seconLastPrice;
+        diff = Math.round(diff * 100) / 100;
+        let percent = (diff / seconLastPrice) * 100;
+        percent = Math.round(percent * 100) / 100;
+        if (diff > 0) {
+            EthereumPriceChange = '+$' + diff;
+            EthereumPercentChange = percent + '%';
+        }
+        else {
+            EthereumPriceChange = '-$' + diff;
+            EthereumPercentChange = '-' + percent + '%';
+        }
+        this.setState({
+            LastUpdatedEthereumPrice: EthereumPriceChange,
+            LastUpdatedEthereumChange: EthereumPercentChange
+        })
     }
 
     componentDidMount() {
@@ -49,7 +70,7 @@ class Ethereum extends Component {
                     let newDate = day + " " + monthNames[month] + ", " + year;
                     EthereumDate.push(newDate.toString());
                 });
-
+                this.getLastEthereumPricedData(EthereumPrice);
                 const charData = {
                     labels: EthereumDate,
                     datasets: [
@@ -63,7 +84,6 @@ class Ethereum extends Component {
                         }
                     ],
                 };
-
                 this.setState({cryptos: crypto});
                 this.setState({
                     chartData: charData
@@ -76,7 +96,8 @@ class Ethereum extends Component {
             <div className='EthereumWrapper'>
                 <h1 className='EthereumTitleText'>Ethereum</h1>
                 <div className='LastEthereumPriceDate'>
-
+                    <h4>{this.state.LastUpdatedEthereumPrice} ({this.state.LastUpdatedEthereumChange}) PAST 24
+                        HOURS</h4>
                 </div>
 
                 <div className='InnerWrapperContent'>

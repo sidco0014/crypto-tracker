@@ -5,8 +5,6 @@ import {Line} from 'react-chartjs-2';
 
 let LitecoinPrice = [];
 let LitecoinDate = [];
-let lastPrice;
-let lastUpdatedOn;
 let LitObjectData = [];
 
 class Litecoin extends Component {
@@ -26,8 +24,31 @@ class Litecoin extends Component {
                 ],
             },
             LastUpdatedLitecoinPrice: '',
-            lastUpdatedLitecoinDate: '',
+            LastUpdatedLitecoinChange: '',
         }
+    }
+
+    getLastLitecoinPricedData(LitecoinPriceArr) {
+        let LitecoinPriceChange = '';
+        let LitecoinPercentChange = '';
+        let lastPrice = LitecoinPriceArr[LitecoinPriceArr.length - 1];
+        let seconLastPrice = LitecoinPriceArr[LitecoinPriceArr.length - 2];
+        let diff = lastPrice - seconLastPrice;
+        diff = Math.round(diff * 100) / 100;
+        let percent = (diff / seconLastPrice) * 100;
+        percent = Math.round(percent * 100) / 100;
+        if (diff > 0) {
+            LitecoinPriceChange = '+$' + diff;
+            LitecoinPercentChange = percent + '%';
+        }
+        else {
+            LitecoinPriceChange = '-$' + diff;
+            LitecoinPercentChange = '-' + percent + '%';
+        }
+        this.setState({
+            LastUpdatedLitecoinPrice: LitecoinPriceChange,
+            LastUpdatedLitecoinChange: LitecoinPercentChange
+        })
     }
 
     componentDidMount() {
@@ -49,7 +70,7 @@ class Litecoin extends Component {
                     let newDate = day + " " + monthNames[month] + ", " + year;
                     LitecoinDate.push(newDate.toString());
                 });
-
+                this.getLastLitecoinPricedData(LitecoinPrice);
                 const charData = {
                     labels: LitecoinDate,
                     datasets: [
@@ -63,7 +84,6 @@ class Litecoin extends Component {
                         }
                     ],
                 };
-
                 this.setState({cryptos: crypto});
                 this.setState({
                     chartData: charData
@@ -76,7 +96,8 @@ class Litecoin extends Component {
             <div className='LitecoinWrapper'>
                 <h1 className='LitecoinTitleText'>Litecoin</h1>
                 <div className='LastLitecoinPriceDate'>
-
+                    <h4>{this.state.LastUpdatedLitecoinPrice} ({this.state.LastUpdatedLitecoinChange}) PAST 24
+                        HOURS</h4>
                 </div>
 
                 <div className='InnerWrapperContent'>
