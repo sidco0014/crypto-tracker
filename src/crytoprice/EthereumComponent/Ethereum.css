@@ -1,5 +1,5 @@
 .EthereumWrapper {
-    height: 800px;
+    height: 1200px;
     width: 100%;
     background: -moz-linear-gradient(top, rgba(3, 14, 33, 1) 0%, rgba(3, 14, 33, 1) 35%, rgba(0, 59, 85, 1) 96%, rgba(0, 59, 85, 1) 100%);
     background: -webkit-linear-gradient(top, rgba(3, 14, 33, 1) 0%, rgba(3, 14, 33, 1) 35%, rgba(0, 59, 85, 1) 96%, rgba(0, 59, 85, 1) 100%);
@@ -35,7 +35,7 @@
 }
 .displayTabs {
     list-style: none;
-    margin: auto;
+    margin: 30px auto auto;
     display: inline-block;
     padding: 0;
 }

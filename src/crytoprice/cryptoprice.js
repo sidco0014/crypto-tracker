@@ -9,15 +9,15 @@ import * as Scroll from 'react-scroll';
 class Crypto extends Component {
 
     scrollToBitcoin() {
-        Scroll.animateScroll.scrollTo(1200);
-    }
-
-    scrollToEthereum() {
         Scroll.animateScroll.scrollTo(2000);
     }
 
+    scrollToEthereum() {
+        Scroll.animateScroll.scrollTo(3000);
+    }
+
     scrollToLitecoin() {
-        Scroll.animateScroll.scrollTo(2800);
+        Scroll.animateScroll.scrollTo(4200);
     }
 
 

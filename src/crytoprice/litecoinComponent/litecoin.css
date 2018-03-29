@@ -1,5 +1,5 @@
 .LitecoinWrapper {
-    height: 800px;
+    height: 1200px;
     width: 100%;
     background: rgba(0, 60, 85, 1);
     background: -moz-linear-gradient(top, rgba(0, 60, 85, 1) 0%, rgba(3, 14, 33, 1) 100%);
@@ -34,6 +34,39 @@
     font-size: 1.3rem;
     margin: 30px auto auto;
 }
+
+.displayTabs {
+    list-style: none;
+    margin: 30px auto auto;
+    display: inline-block;
+    padding: 0;
+}
+
+.displayTabs li {
+    color: white;
+    float: left;
+    margin-left: 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid hsla(0,0%,100%,.18);
+    padding: 20px;
+}
+
+.displayTabs li:hover {
+    border: 1px solid #21ce99;
+    transition: all .3s ease-in-out;
+    outline: 0;
+}
+
+.displayTabs li:first-child {
+    margin-left: 0;
+}
+
+.react-tabs__tab--selected {
+    border: 1px solid #21ce99 !important;
+    font-weight: bold;
+}
+
 
 
 

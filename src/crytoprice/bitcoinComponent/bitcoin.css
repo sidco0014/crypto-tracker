@@ -1,5 +1,5 @@
 .BitcoinWrapper {
-    height: 800px;
+    height: 1200px;
     width: 100%;
     background: rgba(0, 60, 85, 1);
     background: -moz-linear-gradient(top, rgba(0, 60, 85, 1) 0%, rgba(3, 14, 33, 1) 100%);
@@ -37,9 +37,8 @@
 
 .displayTabs {
     list-style: none;
-    margin: auto;
     display: inline-block;
-
+    margin: 30px auto auto;
     padding: 0;
 }
 
